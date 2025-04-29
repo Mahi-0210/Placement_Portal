@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - Campus Placement Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid #ddd;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar img {
+            height: 50px;
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 1.5rem;
+        }
+
+        .navbar ul li a {
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+        }
+
+        .navbar ul li a:hover {
+            color: #1e88e5;
+            border-bottom: 2px solid #1e88e5;
+            padding-bottom: 3px;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            margin: 5px 0;
+        }
+
+        /* Mobile Menu */
+        .navbar ul.mobile-menu {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 70px;
+            right: 20px;
+            background: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+            gap: 1rem;
+            z-index: 1000;
+        }
+
+        .navbar ul.mobile-menu.active {
+            display: flex;
+        }
+
+        /* Features Section */
+        .features {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .features h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .features p {
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: left;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-card h2 {
+            font-size: 1.5rem;
+            color: #1e88e5;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .feature-card .btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.6rem 1.2rem;
+            background: #1e88e5;
+            color: white;
+            font-weight: 500;
+            border: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            transition: background 0.3s ease;
+        }
+
+        .feature-card .btn:hover {
+            background: #1565c0;
+        }
+
+        /* Footer */
+        .footer {
+            background: #fff;
+            color: #333;
+            padding: 1.5rem 2rem;
+            border-top: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .footer p {
+            margin: 0.5rem 0;
+        }
+
+        .footer a {
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #555;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .navbar ul {
+                display: none;
+            }
+
+            .navbar ul.mobile-menu {
+                width: calc(100% - 40px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <img src="https://lh3.googleusercontent.com/pw/AP1GczPlrwhwSpRME_ZE719PApzWK561l6eLQK5kFwRBSILnQOFD2raQ0T-kS3cXuZifMluAvRNiP_qDqrDDEZ9gB7YBsLNnA8Uw_XgGRWR5_bOWiVSAltZijqcUEsbTrPAdhASYQKmrYf-MUB-9L7KpZ9Rm=w772-h73-s-no-gm?authuser=0" alt="Lendi Logo">
+        <ul class="desktop-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <ul class="mobile-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <h1>Features of Our Placement Portal</h1>
+        <p>Explore tools and resources to enhance your skills and prepare for placements effectively.</p>
+        <div class="features-grid">
+            <!-- Feature 1 -->
+            <div class="feature-card">
+                <h2>Aptitude Questions</h2>
+                <p>Practice a variety of aptitude questions including logical reasoning, quantitative aptitude, and verbal ability to prepare for your placement tests.</p>
+                <a href="aptitude.html" class="btn">Learn More</a>
+            </div>
+            <!-- Feature 2 -->
+            <div class="feature-card">
+                <h2>Coding Challenges</h2>
+                <p>Hone your programming skills with a curated collection of coding challenges, ranging from beginner to advanced levels.</p>
+                <a href="Coding que.html" class="btn">Start Practicing</a>
+            </div>
+            <!-- Feature 3 -->
+            <div class="feature-card">
+                <h2>Resume Builder</h2>
+                <p>Create ATS-friendly, professional resumes tailored to your preferred career paths, with built-in templates and guidance.</p>
+                <a href="resume bulider.html" class="btn">Build Resume</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <p>&copy; 2024 Campus Placement Portal. All rights reserved.</p>
+        <p><a href="mailto:support@placementportal.com">Contact Us</a></p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.mobile-menu');
+            menu.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>

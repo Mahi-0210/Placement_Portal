@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Challenges - Campus Placement Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid #ddd;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar img {
+            height: 50px;
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 1.5rem;
+        }
+
+        .navbar ul li a {
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+        }
+
+        .navbar ul li a:hover {
+            color: #1e88e5;
+            border-bottom: 2px solid #1e88e5;
+            padding-bottom: 3px;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            margin: 5px 0;
+        }
+
+        /* Mobile Menu */
+        .navbar ul.mobile-menu {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 70px;
+            right: 20px;
+            background: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+            gap: 1rem;
+            z-index: 1000;
+        }
+
+        .navbar ul.mobile-menu.active {
+            display: flex;
+        }
+
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: #fff;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        /* Coding Levels */
+        .coding-levels {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .levels-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .level-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .level-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .level-card h2 {
+            font-size: 1.5rem;
+            color: #1e88e5;
+            margin-bottom: 1rem;
+        }
+
+        .level-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            line-height: 1.8;
+        }
+
+        .level-card ul li {
+            color: #555;
+        }
+
+        .level-card .btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.6rem 1.2rem;
+            background: #1e88e5;
+            color: white;
+            font-weight: 500;
+            border: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            transition: background 0.3s ease;
+        }
+
+        .level-card .btn:hover {
+            background: #1565c0;
+        }
+
+        /* Footer */
+        .footer {
+            background: #fff;
+            color: #333;
+            padding: 1.5rem 2rem;
+            border-top: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .footer p {
+            margin: 0.5rem 0;
+        }
+
+        .footer a {
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #555;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .navbar ul {
+                display: none;
+            }
+
+            .navbar ul.mobile-menu {
+                width: calc(100% - 40px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <img src="https://lh3.googleusercontent.com/pw/AP1GczPlrwhwSpRME_ZE719PApzWK561l6eLQK5kFwRBSILnQOFD2raQ0T-kS3cXuZifMluAvRNiP_qDqrDDEZ9gB7YBsLNnA8Uw_XgGRWR5_bOWiVSAltZijqcUEsbTrPAdhASYQKmrYf-MUB-9L7KpZ9Rm=w772-h73-s-no-gm?authuser=0" alt="Lendi Logo">
+        <ul class="desktop-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <ul class="mobile-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1>Coding Challenges</h1>
+        <p>Choose your level of complexity and start practicing coding questions to enhance your skills.</p>
+    </header>
+
+    <!-- Coding Levels -->
+    <section class="coding-levels">
+        <div class="levels-grid">
+            <!-- Beginner Level -->
+            <div class="level-card">
+                <h2>Beginner</h2>
+                <ul>
+                    <li>Reverse a string</li>
+                    <li>Find the largest number in an array</li>
+                    <li>Check if a number is prime</li>
+                </ul>
+                <a href="beginner level.html" class="btn">Start Beginner Level</a>
+            </div>
+
+            <!-- Intermediate Level -->
+            <div class="level-card">
+                <h2>Intermediate</h2>
+                <ul>
+                    <li>Find the longest substring without repeating characters</li>
+                    <li>Sort an array using quicksort</li>
+                    <li>Find the minimum number of coins for a given amount</li>
+                </ul>
+                <a href="intermediate level.html" class="btn">Start Intermediate Level</a>
+            </div>
+
+            <!-- Advanced Level -->
+            <div class="level-card">
+                <h2>Advanced</h2>
+                <ul>
+                    <li>Implement a Trie (Prefix Tree)</li>
+                    <li>Solve the N-Queens problem</li>
+                    <li>Find the shortest path in a weighted graph (Dijkstra's Algorithm)</li>
+                </ul>
+                <a href="adavanced level.html" class="btn">Start Advanced Level</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Campus Placement Portal. All rights reserved.</p>
+        <p><a href="mailto:support@placementportal.com">Contact Us</a></p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.mobile-menu');
+            menu.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>
